@@ -8,8 +8,7 @@ params:
   banner:
     buttonText: Get Started
     subtitle: |-
-    Student at London Business School studying MFA, KCL 2021, Lived in India, Netherlands and the UK
-    and aspiring to visit many more  countries!
+    Student at London Business School studying MFA, KCL, Lived in India, Netherlands and the UK and aspiring to visit many more countries
     title: Hi, my name is Aayush. Welcome to my online portfolio!
   blog: {}
   contact:
