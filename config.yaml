@@ -1,15 +1,15 @@
 baseURL: https://aayush-khurana.netlify.app/
 languageCode: en-us
-title: Forty
+title: Portfolio website for Aayush
 theme: forty
 googleAnalytics: ''
 disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    subtitle: |-
-      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      AND RELEASED UNDER THE CREATIVE COMMONS.
+    #subtitle: |-
+      #A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
+      #AND RELEASED UNDER THE CREATIVE COMMONS.
     title: Hi, my name is Aayush
   blog: {}
   contact:
