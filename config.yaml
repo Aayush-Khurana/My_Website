@@ -7,29 +7,29 @@ disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    #subtitle: |-
-      #A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
-      #AND RELEASED UNDER THE CREATIVE COMMONS.
-    title: Hi, my name is Aayush
+    subtitle: |-
+      A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP
+      AND RELEASED UNDER THE CREATIVE COMMONS.
+    title: Hi, my name is Aayush. 
   blog: {}
   contact:
     address:
-      - city: City, ST 00000
-        country: Country
-        street: Street
-        title: Address
+      - city: London, UK, NW1 4SA 
+        country: Uk
+        street: Regent's Park
+        title: London Business School
     buttonClear: Clear
     buttonSend: Send message
     email:
       - email: aayushk.mfa2022@london.edu
-        title: Email
+        title: aayushk.mfa2022@london.edu
     enable: yes
     phone:
-      - phone: (000) 000-0000 x1234
+      - phone: +310615272677
         title: Phone
   custom_css: []
   custom_js: []
-  description: Your description
+  description: "Your description"
   error404:
     heading: Page couldn't be found
     text: Please visit [this page](/)
@@ -47,7 +47,7 @@ params:
         url: https://www.twitter.com
       - icon: fa-facebook
         label: Facebook
-        url: https://www.facebook.com
+        url: https://www.facebook.com/aayush.khurana.10/
       - icon: fa-instagram
         label: Instagram
         url: https://www.instagram.com
