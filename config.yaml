@@ -88,15 +88,15 @@ params:
       - image: Workflow-Decor.jpg
         subtitle: Learn more about my professional side
         title: Resume
-        url: blogs/tempus
+        url: blogs/CV
       - image: pic03.jpg
-        subtitle: My first experiance handling data and coding in R Studio
-        title: Pre-Programme Assignment
-        url: blogs/ipsum
+        subtitle: Recreating the opinion polls graph for the 2021 German Elections
+        title: Germany elections 2021
+        url: Germany elections 2021
       - image: pic04.jpg
-        subtitle: Nisl Sed Aliquam
-        title: Brexit results
-        url: blogs/brexit
+        subtitle: Recreating the opinion polls graph for the 2021 German Elections
+        title: Yield Curve Inversion
+        url: blogs/Yield
       - image: pic05.jpg
         subtitle: Ipsum Dolor Sit Amet
         title: Biden vs someone

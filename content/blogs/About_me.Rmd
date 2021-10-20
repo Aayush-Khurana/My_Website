@@ -50,13 +50,18 @@ During my free time, I enjoy listenting to podcasts and reading, particularly ne
 
 ```{r image_1, echo = FALSE, out.width= "30%"}
 
-knitr:: include_graphics("img/Squash.jpg", error = FALSE)
+knitr:: include_graphics("/img/Norway1.jpg", error = FALSE)
+knitr:: include_graphics("/img/IMG_2079.JPG", error = FALSE)
 
 ```
 
 Lastly, I also enjoy playing cricket and Squash. In fact, I represented my local squash club back in India at the national level and also had the chance to play for the KCL Men's Squash team as well. Hence a snap from our team which played at the national championships of UK universities in Warwick. 
 
+```{r image_2, echo = FALSE, out.width= "30%"}
 
+knitr:: include_graphics("/img/Squash.jpg", error = FALSE)
+
+```
 
 >Feel free to reach out to me in the send message section of this website if you have any queries.
 

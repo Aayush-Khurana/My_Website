@@ -11,11 +11,13 @@ categories:
 - ''
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+<script src="German elections_files/header-attrs/header-attrs.js"></script>
 
 
-<div id="challenge-2-opinion-polls-for-the-2021-german-elections" class="section level1">
-<h1>Challenge 2: Opinion polls for the 2021 German elections</h1>
+<div id="challenge-opinion-polls-for-the-2021-german-elections" class="section level1">
+<h1>Challenge: Opinion polls for the 2021 German elections</h1>
+<div id="here-is-one-of-the-various-challenges-we-worked-on-as-part-of-our-core-elective.-the-challenge-involved-reproducing-the-election-poll-tracker-originally-created-by-the-guardian-in-rstudio." class="section level3">
+<h3>Here is one of the various challenges we worked on as part of our core elective. The challenge involved reproducing the election poll tracker (originally created by The Guardian) in RStudio.</h3>
 <p>The Guardian newspaper has an <a href="https://www.theguardian.com/world/2021/aug/20/german-election-poll-tracker-who-will-be-the-next-chancellor">election poll tracker for the upcoming German election</a>.
 The list of the opinion polls since Jan 2021 can be found at <a href="https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_German_federal_election">Wikipedia</a> and your task is to reproduce the graph similar to the one produced by the Guardian.</p>
 <p>Here is the graph we were asked to re create using dplyr and tidyverse packages in RStudio
@@ -85,5 +87,9 @@ ggplot(german_election_polls, aes(x=end_date)) +
        subtitle = &quot;14-day rolling average for election polls&quot;) +
   theme(legend.position=&quot;right&quot;) +
   scale_color_manual(values = colors)</code></pre>
-<p><img src="/blogs/blog5_files/figure-html/scrape_wikipedia_polling_data-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/blogs/German%20elections_files/figure-html/scrape_wikipedia_polling_data-1.png" width="648" style="display: block; margin: auto;" /></p>
+<blockquote>
+<p>Shown above is the graph we managed to re-create for the German election results 2021.</p>
+</blockquote>
+</div>
 </div>

@@ -1,34 +1,52 @@
 ---
-title: "CV"
-output:
-  html_document: default
-  pdf_document: default
+title: "Education Background and Professional Experiance"
+date: '2017-10-31T22:42:51-05:00'
+description: Find out a bit more about me
+draft: no
+keywords: ''
+slug: CV
+categories:
+- ''
+- ''
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, echo=FALSE, fig.align='center', out.width='30%',out.extra='style="background-color: white;padding:10px"'}
+
+library(knitr)
+
+
 ```
 
-## R Markdown
+# PostGraduate - London Business School
+## MFA 2022 - MSc Financial Analysis 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Core modules include - 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+1. **Data Analytics for Finance** 
+2. **Corporate Valuation** 
+3. **Mergers and Acquisition**. 
+4. **Analysis of Financial Statements**
+
+# UnderGraduate - King's College London
+## BSc (Hons) Economics and Management (First Class Honours)
+
+Core modules included - 
+
+1. **Advanced Mathematics** 
+2. **Advanced Micro and Macro Economics** 
+3. **Introduction to Corporate Finance**. 
+4. **Applied Econometrics**
 
 
-```{r image_1, echo = FALSE, out.width= "30%"}
 
-knitr:: include_graphics("themes/forty/static/img/Squash.jpg", error = FALSE)
+
+Here is my resume to learn more about my professional experiences and educational background 
+
+
+```{r image_1, echo = FALSE, out.width= "60%"}
+
+knitr:: include_graphics("/img/CV.jpg", error = FALSE)
 
 ```
-```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
