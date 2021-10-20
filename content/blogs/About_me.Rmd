@@ -21,11 +21,17 @@ library(knitr)
 ```
 
 
-My name is Abdullah Rehman and I am reading the Masters in Analytics and Management at London Business School. Post my degree, I am looking to pursue my passion for consulting. I was brought up in Pakistan but always had roots in England due to my extensive family here so decided to come here for my undergraduate studies.
+# Introduction
+Hello I'm Aayush Khurana and I’m a student at LBS pursuing a Masters in Financial Analysis. Prior to joining LBS, I was at King's College London where I pursued my undergradate degree in Economics and Management. During my time at KCL, I was heavily involved in several societies namely -
 
-I did my undergrad from [**University College London**](https://www.ucl.ac.uk) in *Chemical Engineering* and graduated with a first class honors. After my undergrad, I was offered a job at Accenture which I was unable to take at the time due to a few serious family problems back home and I left England for 2 years until now. I am now keen on taking a full time consulting role and looking to do my best to earn a spot in the top tier firms. 
+1. **Enactus KCL as a Finance director** 
+2. **King's Global Markets as a VP** 
+3. **the Squash team representing the KCL Men's team in tournaments**. 
 
-During my spare time, I love to paint. I have an online profile at [Saatchi Art Gallery](https://www.saatchiart.com/account/artworks/1107889). These artworks can be found in the art blogs section of this website. I am also an avid chocolate enthusiast, I can skip any meal of the day except for dessert. 
+Previously, I have worked at *EY* as a business consultant and at *ING bank* as an equity research analyst. To further enhance my understanding of Finance, I also recently worked as a Corporate Finance analyst at a US based Fintech - [*EdgeConneX.*] (https://www.edgeconnex.com/)
+
+## Aspirations
+Given that our I am pursuing a 1 year masters, I am looking forward to making the most of my time at LBS. In particular, I aim to enhance my understanding of financial markets, participate in several clubs including the Finance and Squash clubs and most importantly meet and learn from people with diverse backgrounds. Post LBS, I hope to pursue a career in Capital Markets or Financial consultancy.
 
 
 Below is a list of some of my favourite books. Although I don't get the time to read much these days, these books are still some of my favorites:
