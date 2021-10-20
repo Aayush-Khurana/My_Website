@@ -25,7 +25,7 @@ params:
         title: aayushk.mfa2022@london.edu
     enable: yes
     phone:
-      - phone: 310615272677
+      - phone: 615272677
         title: Phone
   custom_css: []
   custom_js: []
@@ -96,7 +96,7 @@ params:
       - image: pic04.jpg
         subtitle: Nisl Sed Aliquam
         title: Santander
-        url: blogs/ipsum
+        url: blogs/brexit
       - image: pic05.jpg
         subtitle: Ipsum Dolor Sit Amet
         title: Biden vs someone
