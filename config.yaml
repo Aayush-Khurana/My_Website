@@ -25,7 +25,7 @@ params:
         title: aayushk.mfa2022@london.edu
     enable: yes
     phone:
-      - phone: +310615272677
+      - phone: 310615272677
         title: Phone
   custom_css: []
   custom_js: []

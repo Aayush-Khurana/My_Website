@@ -1,12 +1,13 @@
 ---
-categories:
-- ""
-- ""
-date: "2017-10-31T22:26:13-05:00"
+title: "Tempus"
+date: '2017-10-31T22:26:13-05:00'
 description: A brief on my previous experiance, education and professional background
 draft: false
 image: CV.jpg
-keywords: ""
+keywords: ''
 slug: tempus
-title: Tempus
+title: tempus
 ---
+
+
+Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
