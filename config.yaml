@@ -85,25 +85,25 @@ params:
         subtitle: A quick snapshot
         title: About Me 
         url: blogs/aliquam
-      - image: resume.jpg
+      - image: Workflor-Decor.jpg
         subtitle: Learn more about my professional side
         title: Resume
         url: blogs/tempus
       - image: pic03.jpg
-        subtitle: Lorem Etiam Nullam
-        title: Magna
+        subtitle: My first experiance handling data and coding in R Studio
+        title: Pre-Programme Assignment
         url: blogs/magna
       - image: pic04.jpg
         subtitle: Nisl Sed Aliquam
-        title: Ipsum
+        title: Santander
         url: blogs/ipsum
       - image: pic05.jpg
         subtitle: Ipsum Dolor Sit Amet
-        title: Consequat
+        title: Biden vs someone
         url: blogs/ipsum
       - image: pic06.jpg
-        subtitle: Feugiat Amet Tempus
-        title: Etiam
+        subtitle: Handling real life raw data
+        title: Airbnb
         url: blogs/ipsum
   two:
     buttonText: Get Started
