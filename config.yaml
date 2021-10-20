@@ -70,7 +70,7 @@ params:
       - name: Home
         url: '#'
       - name: R projects
-        url: Projects
+        url: Projects/index.Rmd
       - name: King's Global Markets
         url: blogs/ipsum
      # - name: Elements
