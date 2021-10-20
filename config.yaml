@@ -84,7 +84,7 @@ params:
       - image: About_me.jpg
         subtitle: A quick snapshot
         title: About Me 
-        url: blogs/aliquam
+        url: blogs/about_me
       - image: Workflow-Decor.jpg
         subtitle: Learn more about my professional side
         title: Resume
