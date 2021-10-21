@@ -45,18 +45,19 @@ library(car)
 
 ### The aim of the analysis is to build a prediction model that can estimate the average cost for 2 people to stay in an AirBnB in Amsterdam for 4 nights. As such, we analysed data about Airbnb listings in the city and identified predictors that are highly relevant to the price and fitted several models. Those predictors are selected first based on common sense and were analysed in terms of their price expanatory power. We then tested several models in order to find out which could predict the price better. The best model was chosen based on how well it helps to predict the prices given different inputs. The price is then estimated based on the best model. The best model includes variables such as property type, number_of_reviews, review_scores_rating, bathrooms, bedrooms, accommodates, host_is_superhost, neighbourhood_simplified, availability_30 and reviews_per_month. These are consistent with common sense metrics that would lead to increases or decreases in price.
 
+> I apologise in advance for the significant chunks of code which follow. The same are needed to  produce the final regression model and I am sure you will be intrigued by the conclusions which follow!
+
 ```{r load_data, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
 
 listings <- vroom("http://data.insideairbnb.com/the-netherlands/north-holland/amsterdam/2021-09-07/data/listings.csv.gz") %>% 
        clean_names()
-
 ```
 
 # Exploratory Data Analysis (EDA)
 
 ```{r, out.width='60%'}
 #Storing the price as a number
-listings_clean <- listings %>% 
+listings_clean <- listings %>%
   filter(name != "",
          host_location != "") %>% 
   mutate(price = parse_number(price),
@@ -177,10 +178,6 @@ model3 <- lm(log(price_4_nights) ~
                instant_bookable,
              data = listings_clean5)
 
-summary(model3)
-
-vif(model3)
-
 
 listings_clean5 <- listings_clean5 %>% 
   mutate(neighbourhood_simplified = case_when(neighbourhood_cleansed %in% c("Oostelijk Havengebied - Indische Buurt",
@@ -228,8 +225,6 @@ model5 <- lm(log(price_4_nights) ~
                availability_30 +
                reviews_per_month,
              data = listings_clean5)
-
-summary(model5)
 
 vif(model5)
 autoplot(model5)

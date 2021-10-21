@@ -29,12 +29,15 @@ categories:
 <h1>Executive Summary</h1>
 <div id="the-aim-of-the-analysis-is-to-build-a-prediction-model-that-can-estimate-the-average-cost-for-2-people-to-stay-in-an-airbnb-in-amsterdam-for-4-nights.-as-such-we-analysed-data-about-airbnb-listings-in-the-city-and-identified-predictors-that-are-highly-relevant-to-the-price-and-fitted-several-models.-those-predictors-are-selected-first-based-on-common-sense-and-were-analysed-in-terms-of-their-price-expanatory-power.-we-then-tested-several-models-in-order-to-find-out-which-could-predict-the-price-better.-the-best-model-was-chosen-based-on-how-well-it-helps-to-predict-the-prices-given-different-inputs.-the-price-is-then-estimated-based-on-the-best-model.-the-best-model-includes-variables-such-as-property-type-number_of_reviews-review_scores_rating-bathrooms-bedrooms-accommodates-host_is_superhost-neighbourhood_simplified-availability_30-and-reviews_per_month.-these-are-consistent-with-common-sense-metrics-that-would-lead-to-increases-or-decreases-in-price." class="section level3">
 <h3>The aim of the analysis is to build a prediction model that can estimate the average cost for 2 people to stay in an AirBnB in Amsterdam for 4 nights. As such, we analysed data about Airbnb listings in the city and identified predictors that are highly relevant to the price and fitted several models. Those predictors are selected first based on common sense and were analysed in terms of their price expanatory power. We then tested several models in order to find out which could predict the price better. The best model was chosen based on how well it helps to predict the prices given different inputs. The price is then estimated based on the best model. The best model includes variables such as property type, number_of_reviews, review_scores_rating, bathrooms, bedrooms, accommodates, host_is_superhost, neighbourhood_simplified, availability_30 and reviews_per_month. These are consistent with common sense metrics that would lead to increases or decreases in price.</h3>
+<blockquote>
+<p>I apologise in advance for the significant chunks of code which follow. The same are needed to produce the final regression model and I am sure you will be intrigued by the conclusions which follow!</p>
+</blockquote>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level1">
 <h1>Exploratory Data Analysis (EDA)</h1>
 <pre class="r"><code>#Storing the price as a number
-listings_clean &lt;- listings %&gt;% 
+listings_clean &lt;- listings %&gt;%
   filter(name != &quot;&quot;,
          host_location != &quot;&quot;) %&gt;% 
   mutate(price = parse_number(price),
@@ -142,65 +145,8 @@ ggplot(listings_clean5, aes(x = price_4_nights)) +
                instant_bookable,
              data = listings_clean5)
 
-summary(model3)</code></pre>
-<pre><code>
-Call:
-lm(formula = log(price_4_nights) ~ prop_type_simplified + number_of_reviews + 
-    review_scores_rating + bathrooms + bedrooms + beds + accommodates + 
-    host_is_superhost + instant_bookable, data = listings_clean5)
 
-Residuals:
-    Min      1Q  Median      3Q     Max 
--3.4023 -0.2356 -0.0085  0.2225  2.2901 
-
-Coefficients:
-                                                  Estimate Std. Error t value
-(Intercept)                                      5.103e+00  5.576e-02  91.516
-prop_type_simplifiedEntire residential home     -1.263e-01  1.668e-02  -7.570
-prop_type_simplifiedEntire townhouse            -4.733e-02  2.415e-02  -1.960
-prop_type_simplifiedOther                       -7.893e-02  1.057e-02  -7.468
-prop_type_simplifiedPrivate room in rental unit -4.165e-01  1.255e-02 -33.196
-number_of_reviews                               -6.000e-04  6.596e-05  -9.095
-review_scores_rating                             1.180e-01  1.124e-02  10.497
-bathrooms                                        1.322e-01  1.105e-02  11.957
-bedrooms                                         1.180e-01  8.536e-03  13.826
-beds                                             9.030e-03  5.463e-03   1.653
-accommodates                                     1.245e-01  5.462e-03  22.798
-host_is_superhostTRUE                            7.001e-02  1.149e-02   6.095
-instant_bookableTRUE                             6.228e-03  9.236e-03   0.674
-                                                Pr(&gt;|t|)    
-(Intercept)                                      &lt; 2e-16 ***
-prop_type_simplifiedEntire residential home     4.02e-14 ***
-prop_type_simplifiedEntire townhouse              0.0500 .  
-prop_type_simplifiedOther                       8.77e-14 ***
-prop_type_simplifiedPrivate room in rental unit  &lt; 2e-16 ***
-number_of_reviews                                &lt; 2e-16 ***
-review_scores_rating                             &lt; 2e-16 ***
-bathrooms                                        &lt; 2e-16 ***
-bedrooms                                         &lt; 2e-16 ***
-beds                                              0.0984 .  
-accommodates                                     &lt; 2e-16 ***
-host_is_superhostTRUE                           1.13e-09 ***
-instant_bookableTRUE                              0.5002    
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.3832 on 11022 degrees of freedom
-  (21 observations deleted due to missingness)
-Multiple R-squared:  0.3752,    Adjusted R-squared:  0.3745 
-F-statistic: 551.6 on 12 and 11022 DF,  p-value: &lt; 2.2e-16</code></pre>
-<pre class="r"><code>vif(model3)</code></pre>
-<pre><code>                         GVIF Df GVIF^(1/(2*Df))
-prop_type_simplified 1.569514  4        1.057963
-number_of_reviews    1.220562  1        1.104790
-review_scores_rating 1.049764  1        1.024580
-bathrooms            1.189945  1        1.090846
-bedrooms             2.980894  1        1.726527
-beds                 2.899654  1        1.702837
-accommodates         2.784538  1        1.668693
-host_is_superhost    1.216296  1        1.102858
-instant_bookable     1.099468  1        1.048555</code></pre>
-<pre class="r"><code>listings_clean5 &lt;- listings_clean5 %&gt;% 
+listings_clean5 &lt;- listings_clean5 %&gt;% 
   mutate(neighbourhood_simplified = case_when(neighbourhood_cleansed %in% c(&quot;Oostelijk Havengebied - Indische Buurt&quot;,
                                                                              &quot;Oud-Oost&quot;,
                                                                              &quot;Watergraafsmeer&quot;,
@@ -247,67 +193,7 @@ unique(listings_clean$neighbourhood_simplified)</code></pre>
                reviews_per_month,
              data = listings_clean5)
 
-summary(model5)</code></pre>
-<pre><code>
-Call:
-lm(formula = log(price_4_nights) ~ prop_type_simplified + number_of_reviews + 
-    review_scores_rating + bathrooms + bedrooms + beds + accommodates + 
-    host_is_superhost + instant_bookable + neighbourhood_simplified + 
-    availability_30 + reviews_per_month, data = listings_clean5)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--3.5230 -0.2182 -0.0018  0.2091  2.4078 
-
-Coefficients:
-                                                  Estimate Std. Error t value
-(Intercept)                                      5.188e+00  5.215e-02  99.489
-prop_type_simplifiedEntire residential home     -4.658e-02  1.616e-02  -2.882
-prop_type_simplifiedEntire townhouse            -1.639e-02  2.257e-02  -0.726
-prop_type_simplifiedOther                       -1.315e-01  1.024e-02 -12.852
-prop_type_simplifiedPrivate room in rental unit -4.428e-01  1.177e-02 -37.638
-number_of_reviews                               -7.300e-04  6.843e-05 -10.668
-review_scores_rating                             1.288e-01  1.048e-02  12.291
-bathrooms                                        1.215e-01  1.031e-02  11.784
-bedrooms                                         1.372e-01  7.983e-03  17.193
-beds                                             6.232e-03  5.098e-03   1.222
-accommodates                                     1.150e-01  5.102e-03  22.535
-host_is_superhostTRUE                            5.013e-02  1.075e-02   4.664
-instant_bookableTRUE                            -8.320e-03  8.669e-03  -0.960
-neighbourhood_simplifiedEast                    -2.519e-01  1.016e-02 -24.797
-neighbourhood_simplifiedNorth                   -3.391e-01  1.707e-02 -19.870
-neighbourhood_simplifiedSouth                   -1.323e-01  1.318e-02 -10.036
-neighbourhood_simplifiedWest                    -1.799e-01  8.376e-03 -21.474
-availability_30                                  1.147e-02  4.384e-04  26.162
-reviews_per_month                               -1.232e-02  2.258e-03  -5.456
-                                                Pr(&gt;|t|)    
-(Intercept)                                      &lt; 2e-16 ***
-prop_type_simplifiedEntire residential home      0.00396 ** 
-prop_type_simplifiedEntire townhouse             0.46792    
-prop_type_simplifiedOther                        &lt; 2e-16 ***
-prop_type_simplifiedPrivate room in rental unit  &lt; 2e-16 ***
-number_of_reviews                                &lt; 2e-16 ***
-review_scores_rating                             &lt; 2e-16 ***
-bathrooms                                        &lt; 2e-16 ***
-bedrooms                                         &lt; 2e-16 ***
-beds                                             0.22156    
-accommodates                                     &lt; 2e-16 ***
-host_is_superhostTRUE                           3.14e-06 ***
-instant_bookableTRUE                             0.33721    
-neighbourhood_simplifiedEast                     &lt; 2e-16 ***
-neighbourhood_simplifiedNorth                    &lt; 2e-16 ***
-neighbourhood_simplifiedSouth                    &lt; 2e-16 ***
-neighbourhood_simplifiedWest                     &lt; 2e-16 ***
-availability_30                                  &lt; 2e-16 ***
-reviews_per_month                               4.99e-08 ***
----
-Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
-
-Residual standard error: 0.3572 on 11016 degrees of freedom
-  (21 observations deleted due to missingness)
-Multiple R-squared:  0.4575,    Adjusted R-squared:  0.4566 
-F-statistic:   516 on 18 and 11016 DF,  p-value: &lt; 2.2e-16</code></pre>
-<pre class="r"><code>vif(model5)</code></pre>
+vif(model5)</code></pre>
 <pre><code>                             GVIF Df GVIF^(1/(2*Df))
 prop_type_simplified     1.827265  4        1.078264
 number_of_reviews        1.511856  1        1.229575

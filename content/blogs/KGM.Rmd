@@ -31,7 +31,7 @@ library(knitr)
 
 ### Here is an excerpt of one of my published articles - 
 
-```{r image_1, echo = FALSE, out.width= "90%"}
+```{r image_1, echo = FALSE, out.width= "75%"}
 
 knitr:: include_graphics("/img/KGM1.jpg", error = FALSE)
 
