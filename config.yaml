@@ -69,12 +69,12 @@ params:
     links:
       - name: Home
         url: '#'
-      - name: R projects
-        url: Projects/index
-      - name: King's Global Markets
-        url: blogs/ipsum
-     # - name: Elements
-      #  url: elements.html
+      - name: About me
+        url: blogs/about_me
+      - name: Background  
+        url: blogs/CV
+      - name: Germany elections 2021
+        url: blogs/Germany
     menu: Menu
     subtitle: By HTML5 Up
     title: Forty
@@ -87,12 +87,12 @@ params:
         url: blogs/about_me
       - image: Workflow-Decor.jpg
         subtitle: Learn more about my professional side
-        title: Resume
+        title: Background
         url: blogs/CV
       - image: pic03.jpg
         subtitle: Recreating the opinion polls graph for the 2021 German Elections
         title: Germany elections 2021
-        url: Germany elections 2021
+        url: blogs/Germany
       - image: pic04.jpg
         subtitle: Recreating the opinion polls graph for the 2021 German Elections
         title: Yield Curve Inversion
@@ -104,7 +104,7 @@ params:
       - image: pic06.jpg
         subtitle: A snapshot of my research for The London Financial as the Middle Eastern Equity Analyst
         title: King's Global Markets 
-        url: blogs/ipsum
+        url: blogs/KGM
   two:
     buttonText: Get Started
     enable: yes
