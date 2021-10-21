@@ -98,7 +98,7 @@ params:
         title: Germany elections 2021
         url: blogs/Germany
       - image: Yield curve.jpg
-        subtitle: Recreating the opinion polls graph for the 2021 German Elections
+        subtitle: Modelling the US yield curve
         title: Yield Curve Inversion
         url: blogs/Yield
       - image: Amsterdam.jpg

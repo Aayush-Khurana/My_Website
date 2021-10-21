@@ -1,7 +1,7 @@
 ---
 title: German Elections 2021
 date: '2017-10-31T22:26:09-05:00'
-description: Lorem Etiam Nullam
+description: German elections
 draft: no
 image: 
 keywords: ''
@@ -44,19 +44,19 @@ library(scales)
 ```
 
 
-# Challenge: Opinion polls for the 2021 German elections
+## Challenge: Opinion polls for the 2021 German elections
 
 ### Here is one of the various challenges we worked on as part of our core elective. The challenge involved reproducing the election poll tracker (originally created by The Guardian) in RStudio.  
 
-The Guardian newspaper has an [election poll tracker for the upcoming German election](https://www.theguardian.com/world/2021/aug/20/german-election-poll-tracker-who-will-be-the-next-chancellor).
-The list of the opinion polls since Jan 2021 can be found at [Wikipedia](https://en.wikipedia.org/wiki/Opinion_polling_for_the_2021_German_federal_election) and your task is to reproduce the graph similar to the one produced by the Guardian. 
 
 Here is the graph we were asked to re create using dplyr and tidyverse packages in RStudio
+
 ```{r image_1, echo = FALSE, out.width= "60%"}
 
 knitr:: include_graphics("/img/Brexit graph.jpg", error = FALSE)
 
 ```
+
 The following code will scrape the wikipedia page and import the table in a dataframe.
 
 

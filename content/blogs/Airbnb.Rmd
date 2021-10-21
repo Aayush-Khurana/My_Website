@@ -11,8 +11,6 @@ categories:
 - ''
 ---
 
-### This particular challenge involved estimating the average cost for 2 people to stay in an AirBnB in Amsterdam for 4 nights. Unlike the other 2 challenges, this project involved taking raw data from Airbnb and, using our skillsets in Data wrangling and manipulation, create a regression model to create a sound prediction of the estimated price. 
-
 ```{r setup, include=FALSE}
 options(knitr.table.format = "html") 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, 
@@ -45,7 +43,7 @@ library(car)
 
 # Executive Summary
 
-> The aim of the analysis is to build a prediction model that can estimate the average cost for 2 people to stay in an AirBnB in Amsterdam for 4 nights. As such, we analysed data about Airbnb listings in the city and identified predictors that are highly relevant to the price and fitted several models. Those predictors are selected first based on common sense and were analysed in terms of their price expanatory power. We then tested several models in order to find out which could predict the price better. The best model was chosen based on how well it helps to predict the prices given different inputs. The price is then estimated based on the best model. The best model includes variables such as property type, number_of_reviews, review_scores_rating, bathrooms, bedrooms, accommodates, host_is_superhost, neighbourhood_simplified, availability_30 and reviews_per_month. These are consistent with common sense metrics that would lead to increases or decreases in price.
+### The aim of the analysis is to build a prediction model that can estimate the average cost for 2 people to stay in an AirBnB in Amsterdam for 4 nights. As such, we analysed data about Airbnb listings in the city and identified predictors that are highly relevant to the price and fitted several models. Those predictors are selected first based on common sense and were analysed in terms of their price expanatory power. We then tested several models in order to find out which could predict the price better. The best model was chosen based on how well it helps to predict the prices given different inputs. The price is then estimated based on the best model. The best model includes variables such as property type, number_of_reviews, review_scores_rating, bathrooms, bedrooms, accommodates, host_is_superhost, neighbourhood_simplified, availability_30 and reviews_per_month. These are consistent with common sense metrics that would lead to increases or decreases in price.
 
 ```{r load_data, echo=FALSE, message=FALSE, warning=FALSE, cache=TRUE}
 
@@ -56,17 +54,7 @@ listings <- vroom("http://data.insideairbnb.com/the-netherlands/north-holland/am
 
 # Exploratory Data Analysis (EDA)
 
-In the [R4DS Exploratory Data Analysis chapter](http://r4ds.had.co.nz/exploratory-data-analysis.html){target="_blank"}, the authors state:
-
-> "Your goal during EDA is to develop an understanding of your data. The easiest way to do this is to use questions as tools to guide your investigation... EDA is fundamentally a creative process. And like most creative processes, the key to asking quality questions is to generate a large quantity of questions."
-
-
-```{r}
-
-glimpse(listings)
-favstats(listings$id)
-skim(listings)
-
+```{r, out.width='60%'}
 #Storing the price as a number
 listings_clean <- listings %>% 
   filter(name != "",
@@ -75,24 +63,8 @@ listings_clean <- listings %>%
          bathrooms = parse_number(gsub( "\\s.*", "", bathrooms_text))) %>% 
   filter(bathrooms != "")
 
-typeof(listings_clean$price)
-
-skim(listings_clean)
-
-#explore the distribution of bedrooms and beds
-ggplot(listings_clean) +
-  geom_density(aes(x=bedrooms))+
-  theme_bw()
-
-ggplot(listings_clean) +
-  geom_density(aes(x=beds))+
-  theme_bw()
-
-ggplot(listings_clean) +
-  geom_density(aes(x=price))+
-  theme_bw()
-
 ```
+
 > We noticed that for each variable there are a lot of outliers outside where the majority data concentrate and we would like to remove those uncommon observations later.
 
 ```{r}
@@ -134,33 +106,9 @@ listings_smaller %>%
   select(price, bedrooms, beds, bathrooms, review_scores_rating) %>% 
   ggpairs(aes(alpha = 0.4))
 
-#box plot for number of beds (1 and 2) relative to prices
-ggplot(listings_smaller, aes(x = price)) +
-  geom_boxplot() +
-  facet_wrap(~bedrooms)
-
-#comparison of review scores and prices
-ggplot(listings_smaller, aes(x = review_scores_rating, y = price)) +
-  geom_point(aes(alpha = 0.4))
-  
-
-
 ```
 
-> Plot 1 showcases that 2 bedrooms are relatively more (but only slightly) expensive than 1 bedroom in Amsterdam; however the range and variability of prices of 2 bedrooom rooms appears to be greater than a 1 bedroom, with the 75% percentile being significantly higher for 2 bedrooms compared to 1. The moderately strong positive correlation of 0.378 between bedrooms and price also indicates the same. Similarly, the plots also indicate that Higher ratings is also associated with higher prices, even though the correlation between the two variables is only weakly positive.
-
-> 0 review ratings do not tell us much about the quality of the accomodation nor the price. It can be explained by that new listing usually don't have reviews and 0 ratings are therefore not informative
-
-Next, we look at the variable `property_type`. We can use the `count` function to determine how many categories there are their frequency. What are the top 4 most common property types? What proportion of the total listings do they make up? 
-
-Since the vast majority of the observations in the data are one of the top four or five property types, we would like to create a simplified version of `property_type` variable that has 5 categories: the top four categories and `Other`. Fill in the code below to create `prop_type_simplified`.
-
 ```{r}
-# property type
-listings_clean5 %>% 
-  group_by(property_type) %>%
-  summarise(count = n()) %>% 
-  arrange(desc(count))
 
 #creating a simplified version of `property_type`
 listings_clean5 <- listings_clean5 %>%
@@ -170,40 +118,14 @@ listings_clean5 <- listings_clean5 %>%
   ))
   
 ```
-> As shown in the table above, the four most common property types in Airbnb Amsterdam are "Entire rental unit", "private room in rental unit", "entire condo" and "entire residential home". Collectively they account for the majority of the property types available in Amsterdam. The significantly high number of row houses, condos and houses with lofts relative to other major cities like Rotterdam (more metropolitan with numerous skyscapers) also justifies the relatively high number of condos and lofts.
 
-Use the code below to check that `prop_type_simplified` was correctly made.
-
-```{r}
-listings_clean5 %>%
-  count(property_type, prop_type_simplified) %>%
-  arrange(desc(n))        
-```        
-
-Airbnb is most commonly used for travel purposes, i.e., as an alternative to traditional hotels. We only want to include  listings in our regression analysis that are intended for travel purposes:
-
-
-```{r}
-listings %>%
-  count(minimum_nights) %>%
-  arrange(desc(n))  
-# Filtered out everything above 4 min. nights in listings_clean
-ggplot(listings_clean5, aes(x=minimum_nights)) + 
-  geom_histogram()
-
-```
+> We also noticed that the four most common property types in Airbnb Amsterdam are "Entire rental unit", "private room in rental unit", "entire condo" and "entire residential home". Collectively they account for the majority of the property types available in Amsterdam. The significantly high number of row houses, condos and houses with lofts relative to other major cities like Rotterdam (more metropolitan with numerous skyscapers) also justifies the relatively high number of condos and lofts.
 
 > The most common values appearing for the variable "minimum nights" are 1,2 and 3 nights. Out of these 3 values, 2 nights is by far the most commonly occuring value. Given the fact that Amsterdam is amongst one of the top cities for a weekend visit by tourists residing in UK and western Europe, a minimum of 2 nights is seems logical. Similarly, 30 nights is the 9th highest with it being only 1 of 2 values to be greater than 10. The fact that any reservation >29 days is considered as a "long-term stay" and the host can earn significant benefits from the same could explain why a minimum of 30 nights is so common.  
 
-
-
-Filter the airbnb data so that it only includes observations with `minimum_nights <= 4`
-
-        
 # Mapping 
 
-
-```{r, out.width = '80%'}
+```{r, out.width = '60%'}
 
 leaflet(data = filter(listings_clean5)) %>% 
   addProviderTiles("OpenStreetMap.Mapnik") %>% 
@@ -221,7 +143,7 @@ leaflet(data = filter(listings_clean5)) %>%
 # Regression Analysis
 
 
-```{r}
+```{r, out.width = '50%'}
 
 listings_clean5 <- listings_clean5 %>% 
   mutate(price_4_nights = price * 4) %>%  # we did not include accomodates because the given price is already including all people
@@ -236,41 +158,11 @@ ggplot(listings_clean5, aes(x = log(price_4_nights))) +
 
 ```
 
-## Model 1
-```{r}
-
-model1 <- lm(log(price_4_nights) ~ prop_type_simplified +
-               number_of_reviews +
-               review_scores_rating,
-             data = listings_clean5)
-
-summary(model1)
-
-
-```
-
-## Model 2
-
-```{r}
-
-model2 <- lm(log(price_4_nights) ~ prop_type_simplified +
-               number_of_reviews +
-               review_scores_rating +
-               room_type,
-             data = listings_clean5)
-
-summary(model2)
-
-vif(model2)
-
-```
-
 > The variable (log(price_4_nights)) has been used as it effectively captures the compunding effect; it also allows for an earier and more meaningful interpretation of the regression results (in percentage terms). This is also showcased by the density plots; the variable price_4_nights is right skewed whereas the logged variable reflects a normal distribution bell curve.
-
 
 ## Model 3
 
-```{r}
+```{r, out.width = '50%'}
 
 model3 <- lm(log(price_4_nights) ~
                prop_type_simplified +
@@ -319,17 +211,8 @@ listings_clean5 <- listings_clean5 %>%
 unique(listings_clean$neighbourhood_simplified)
 ```
 
-## Model 4
-```{r}
-
-
-model4 <- lm(log(price_4_nights) ~ neighbourhood_simplified, data = listings_clean5)
-
-summary(model4)
-
-```
 ## Model 5
-```{r}
+```{r, out.width = '50%'}
 model5 <- lm(log(price_4_nights) ~
                prop_type_simplified +
                number_of_reviews +
@@ -357,7 +240,8 @@ autoplot(model5)
 
 ## Model 6
 > Removed variable beds due to high correlation with bedrooms and variable instant_bookable which is insignificant in model 5.
-```{r}
+
+```{r, out.width = '50%'}
 
 model6 <- lm(log(price_4_nights) ~
                prop_type_simplified +
@@ -380,9 +264,9 @@ summary(model6)
 ## Diagnostics, collinearity, summary tables
 
 
-```{r}
+```{r, out.width = '50%'}
 
-huxreg(model1, model2, model3, model4, model5, model6)
+huxreg(model3, model5, model6)
 
 # Prediction using model6; model 6 has by far the highest R^2 and is less prone to collinearity than model5
 

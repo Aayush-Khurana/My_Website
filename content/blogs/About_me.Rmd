@@ -1,5 +1,5 @@
 ---
-title: "A Brief Introduction"
+title: "A bit about me"
 date: '2017-10-31T22:42:51-05:00'
 description: Find out a bit more about me
 draft: no
@@ -9,9 +9,6 @@ categories:
 - ''
 - ''
 ---
-
-
-## A bit about me
 
 ```{r, echo=FALSE, fig.align='center', out.width='30%',out.extra='style="background-color: white;padding:10px"'}
 
@@ -32,14 +29,15 @@ Previously, I have worked at *EY* as a business consultant and at *ING bank* as 
 
 ## Multi-cultural background
 
-Since an early age, I have been fortunate enough to gain an exposure to people from varied backgrounds and cultures. Having studied at an international school, I also had the chance to visit over 10 countries as part of my high school educatiom (this includes a trip to the Nasa Kennedy space center too!). Therefore, having lived in five cities across three countries, I enjoy interacting with people from different cultures and consider myself to be adaptable to working in diverse environments.
+Since an early age, I have been fortunate enough to interact with people from varied backgrounds and cultures. Having studied at an international school, I also had the chance to visit over 10 countries as part of my high school education (including a trip to the Nasa Kennedy space center!). Therefore, having lived in five cities across three countries, I enjoy interacting with people from different cultures and consider myself to be adaptable to working in diverse environments.
 
 ## Aspirations
+
 Given that our I am pursuing a 1 year masters, I am looking forward to making the most of my time at LBS. In particular, I aim to enhance my understanding of financial markets, participate in several clubs including the Finance and Squash clubs and most importantly meet and learn from people with diverse backgrounds. Post LBS, I hope to pursue a career in Capital Markets or Financial consultancy.
 
 ## My hobbies
 
-During my free time, I enjoy listenting to podcasts and reading, particularly new developments in the field of behavioural economics and finance (below are a few of my top picks). Apart from this, I always try to reap the benefits of staying in London and exploring different restaurents, cafes and pubs with my friends and family. I also enjoy travelling and exploring different cities and culture. Here's a couple of pictures from my recent trip to Scotland 
+During my free time, I enjoy listening to podcast and reading, particularly new developments in the field of behavioral economics and finance (below are a few of my top picks). Apart from this, I always try to reap the benefits of staying in London and explore different restaurants, cafes and pubs with my friends and family. I also enjoy travelling and exploring different cities and culture. Here's a couple of pictures from my recent trip to Norway and Scotland 
 
 * Misbehaving by Richard Thaler
 
@@ -48,20 +46,20 @@ During my free time, I enjoy listenting to podcasts and reading, particularly ne
 * The Indicator from Planet Money (10 min Daily podcast) by NPR
 
 
-```{r image_1, echo = FALSE, out.width= "30%"}
+```{r image_1, echo = FALSE, out.width= "60%"}
 
 knitr:: include_graphics("/img/Norway1.jpg", error = FALSE)
+
 knitr:: include_graphics("/img/IMG_2079.JPG", error = FALSE)
 
 ```
 
-Lastly, I also enjoy playing cricket and Squash. In fact, I represented my local squash club back in India at the national level and also had the chance to play for the KCL Men's Squash team as well. Hence a snap from our team which played at the national championships of UK universities in Warwick. 
+Lastly, I also enjoy playing cricket and Squash. In fact, I represented my local squash club back in India at the national level and also had the chance to play for the KCL Men's Squash team as well. Here is a picture from our team which played at the national championships of UK universities in Warwick. 
 
-```{r image_2, echo = FALSE, out.width= "30%"}
+```{r image_2, echo = FALSE, out.width= "50%"}
 
 knitr:: include_graphics("/img/Squash.jpg", error = FALSE)
 
 ```
 
->Feel free to reach out to me in the send message section of this website if you have any queries.
-
+> Feel free to connect with me via Linkedin

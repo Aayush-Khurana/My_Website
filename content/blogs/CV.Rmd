@@ -1,7 +1,7 @@
 ---
-title: "Education Background and Professional Experiance"
+title: "Educational Background and Professional Experience"
 date: '2017-10-31T22:42:51-05:00'
-description: Find out a bit more about me
+description: My background
 draft: no
 keywords: ''
 slug: CV
@@ -17,7 +17,7 @@ library(knitr)
 
 ```
 
-# PostGraduate - London Business School
+# Postgraduate - London Business School
 ## MFA 2022 - MSc Financial Analysis 
 
 Core modules include - 
@@ -27,7 +27,7 @@ Core modules include -
 3. **Mergers and Acquisition**. 
 4. **Analysis of Financial Statements**
 
-# UnderGraduate - King's College London
+# Undergraduate - King's College London
 ## BSc (Hons) Economics and Management (First Class Honours)
 
 Core modules included - 
