@@ -7,9 +7,7 @@ disqusShortname: ''
 params:
   banner:
     buttonText: Get Started
-    #subtitle: |-
-    #Student at 
-    #London Business School studying MFA, KCL, Lived in India, Netherlands and the UK and aspiring to visit many more countries
+    subtitle: Welcome to my website. Scroll down to learn more about my background and my recent projects in RStudio!
     title: Aayush Khurana's online portfolio
   blog: {}
   contact:
@@ -22,11 +20,11 @@ params:
     buttonSend: Send message
     email:
       - email: aayushk.mfa2022@london.edu
-        title: aayushk.mfa2022@london.edu
+        title: Email
     enable: yes
     phone:
-      - phone: 615272677
-        title: Phone
+      - phone: +44(0)7856115462
+        title: Mobile
   custom_css: []
   custom_js: []
   description: "Your description"
@@ -75,9 +73,15 @@ params:
         url: blogs/CV
       - name: Germany elections 2021
         url: blogs/Germany
+      - name: Yield Curve Inversion
+        url: blogs/Yield
+      - name: Project Amsterdam
+        url: blogs/Airbnb
+      - name: King's Global Markets
+        url: blogs/KGM
     menu: Menu
-    subtitle: By HTML5 Up
-    title: Forty
+    subtitle: By Aayush
+    title: My website
   tiles:
     enable: yes
     showcase:
@@ -89,30 +93,25 @@ params:
         subtitle: Learn more about my professional side
         title: Background
         url: blogs/CV
-      - image: pic03.jpg
+      - image: German elections.jpg
         subtitle: Recreating the opinion polls graph for the 2021 German Elections
         title: Germany elections 2021
         url: blogs/Germany
-      - image: pic04.jpg
+      - image: Yield curve.jpg
         subtitle: Recreating the opinion polls graph for the 2021 German Elections
         title: Yield Curve Inversion
         url: blogs/Yield
-      - image: pic05.jpg
+      - image: Amsterdam.jpg
         subtitle: Incorporating Data wrangling and manipulation to create robust regression models
         title: Project Amsterdam
         url: blogs/Airbnb
-      - image: pic06.jpg
+      - image: KGM.jpg
         subtitle: A snapshot of my research for The London Financial as the Middle Eastern Equity Analyst
         title: King's Global Markets 
         url: blogs/KGM
   two:
-    buttonText: Get Started
+    buttonText: Dive in
     enable: yes
-    subtitle: "Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero.
-      \n    Mauris aliquet magna magna sed nunc rhoncus pharetra. \n    Pellentesque
-      condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia
-      pellentesque lorem ipsum dolor. \n    Nullam et orci eu lorem consequat tincidunt.
-      Vivamus et sagittis libero.\n    Mauris aliquet magna magna sed nunc rhoncus
-      amet pharetra et feugiat tempus."
-    title: Massa libero
-    url: blogs
+    subtitle: "Learn more about my educational background, professional experiences and interest"
+    title: Resume/CV
+    url: blogs/CV
